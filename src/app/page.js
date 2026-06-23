@@ -1,99 +1,70 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-
-// V2 Components
-import Navigation from '@/components/Navigation';
-import Scene3D from '@/components/Scene3D';
-import HeroSection from '@/components/HeroSection';
-import BrokersVsBankers from '@/components/BrokersVsBankers';
-import MetricsMarquee from '@/components/MetricsMarquee';
-import BrokerEdge from '@/components/BrokerEdge';
-import ThreeStepProcess from '@/components/ThreeStepProcess';
-import PaymentCalculator from '@/components/PaymentCalculator';
-import ServiceMatrix from '@/components/ServiceMatrix';
-import ReviewCarousel from '@/components/ReviewCarousel';
-import FaqSection from '@/components/FaqSection';
-import Footer from '@/components/Footer';
-import ContactDrawer from '@/components/ContactDrawer';
+import { useState } from 'react';
+import FreshNavigation from '@/components/FreshNavigation';
+import CanvasScrollytelling from '@/components/CanvasScrollytelling';
+import BlueprintHero from '@/components/BlueprintHero';
+import TrustTicker from '@/components/TrustTicker';
+import FreshComparison from '@/components/FreshComparison';
+import CalculatorMatrix from '@/components/CalculatorMatrix';
+import SolutionGrid from '@/components/SolutionGrid';
+import FreshWizard from '@/components/FreshWizard';
+import BlueprintFaq from '@/components/BlueprintFaq';
+import BlueprintFooter from '@/components/BlueprintFooter';
 
 export default function Home() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [wizardProgram, setWizardProgram] = useState('');
 
-  const handleOpenDrawer = () => setIsDrawerOpen(true);
-  const handleCloseDrawer = () => setIsDrawerOpen(false);
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-  // Monitor scroll progress to drive the Three.js background camera & animations
-  useEffect(() => {
-    const handleScroll = () => {
-      const docHeight = document.documentElement.scrollHeight;
-      const winHeight = window.innerHeight;
-      const totalScrollable = docHeight - winHeight;
-      if (totalScrollable > 0) {
-        setScrollProgress(window.scrollY / totalScrollable);
-      }
-    };
+  const handleProductSelect = (programName) => {
+    setWizardProgram(programName);
+    scrollToSection('wizard');
+  };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // Initial evaluation
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleCtaClick = () => {
+    scrollToSection('wizard');
+  };
 
   return (
-    <main className="relative min-h-screen bg-[#151717] text-white select-none">
-      
-      {/* 3D WebGL Canvas Layer (Fixed Background) */}
-      <Scene3D scrollProgress={scrollProgress} />
+    <main className="relative min-h-screen bg-[#111212] text-white">
+      {/* 2D Canvas Scrollytelling Background Layer */}
+      <CanvasScrollytelling />
 
-      {/* Floating Pill Navigation */}
-      <Navigation onOpenDrawer={handleOpenDrawer} />
+      {/* Sticky Pill Navigation */}
+      <FreshNavigation onContactClick={() => scrollToSection('wizard')} />
 
       {/* Foreground Scroll Sections */}
       <div className="relative z-10 w-full">
-        
-        {/* Section 1: Hero Hook */}
-        <HeroSection onOpenDrawer={handleOpenDrawer} />
+        {/* Hero Section */}
+        <BlueprintHero onCtaClick={handleCtaClick} />
 
-        {/* Section 2: Brokers vs. Bankers Comparison Pinning */}
-        <BrokersVsBankers />
+        {/* Sub-hero Wholesale Trust Ticker */}
+        <TrustTicker />
 
-        {/* Section 2.5: Wholesale Lender Marquee & GSAP Counters */}
-        <MetricsMarquee />
+        {/* Comparison Grid (Broker Advantage) */}
+        <FreshComparison />
 
-        {/* Section 3: Brokers vs Bankers — 3D Tilt Cards */}
-        <BrokerEdge />
+        {/* Centralized Calculator Dashboard */}
+        <CalculatorMatrix onCtaClick={handleCtaClick} />
 
-        {/* Section 4: 3-Step Process with pulsing CTA anchor */}
-        <ThreeStepProcess onOpenDrawer={handleOpenDrawer} />
+        {/* Editorial High-Contrast Solution Grid */}
+        <SolutionGrid onSelect={handleProductSelect} />
 
-        {/* Section 4.5: Monthly Payment Calculator Slider Dashboard */}
-        <PaymentCalculator onOpenDrawer={handleOpenDrawer} />
+        {/* Eligibility Multi-Step Wizard */}
+        <FreshWizard initialProgram={wizardProgram} />
 
-        {/* Section 5: Dynamic Service Matrix (6-card grid) */}
-        <ServiceMatrix onOpenDrawer={handleOpenDrawer} />
+        {/* FAQs Accordion */}
+        <BlueprintFaq />
 
-        {/* Section 6: Testimonials horizontal drag carousel */}
-        <ReviewCarousel />
-
-        {/* Section 7: Final Conversion Hook & Accordion FAQs */}
-        <FaqSection onOpenDrawer={handleOpenDrawer} />
-
-        {/* Section 8: Corporate & Regulatory Footer */}
-        <Footer />
-
+        {/* Footer */}
+        <BlueprintFooter />
       </div>
-
-      {/* Conversion Quote Slider (Contact Form Drawer) */}
-      <AnimatePresence>
-        {isDrawerOpen && (
-          <ContactDrawer isOpen={isDrawerOpen} onClose={handleCloseDrawer} />
-        )}
-      </AnimatePresence>
-
     </main>
   );
 }

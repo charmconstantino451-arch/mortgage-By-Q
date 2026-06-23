@@ -3,11 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --background: #151717;
-  --foreground: #FFFFFF;
-  --gold: #D9B48F;
-  --gold-light: #EAD5C3;
-  --obsidian: #151717;
+  --background: #111212;
+  --foreground: #f5f5f7;
+  --gold: #D4A843;
+  --gold-light: #F0C872;
+  --gold-dim: #8a6a22;
+  --card-bg: #181919;
+  --card-border: rgba(255, 255, 255, 0.06);
+  --selection-bg: #d4a843;
+  --selection-color: #111212;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
 }
 
 html {
@@ -24,139 +33,110 @@ body {
 }
 
 /* Lenis smooth scroll */
-html.lenis { height: auto; }
-.lenis-smooth { scroll-behavior: auto; }
-.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis-stopped { overflow: hidden; }
-
-/* Three.js canvas layer */
-canvas {
-  pointer-events: auto;
-  display: block;
+html.lenis {
+  height: auto;
+}
+.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis-stopped {
+  overflow: hidden;
 }
 
-/* Hero giant type utility */
-.text-hero-giant {
-  font-size: clamp(2.8rem, 8vw, 8.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
+/* Editorial typographic utilities */
+.font-editorial-heading {
+  font-family: var(--font-lora), Georgia, serif;
+  letter-spacing: -0.02em;
 }
 
-/* Italic gold emphasis */
-.gold-italic {
-  font-style: italic;
-  color: var(--gold);
-}
-
-/* Flat Glass card - strictly 0px border radius and zero shadows */
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Flat design cards: 0px border radius, no drop shadows */
+.flat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 0px !important;
   box-shadow: none !important;
 }
 
-/* Pill buttons - smooth, perfectly rounded interaction points */
+/* Custom premium inputs */
+.flat-input {
+  background: #1e2020;
+  border: 1px solid var(--card-border);
+  color: #fff;
+  border-radius: 0px !important;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.flat-input:focus {
+  border-color: var(--gold);
+}
+
+/* Pill buttons for interaction points */
 .btn-gold {
   background: var(--gold);
-  color: #151717;
+  color: #111212;
   border-radius: 9999px;
   font-weight: 600;
-  letter-spacing: 0.03em;
-  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: none !important;
 }
 .btn-gold:hover {
   background: var(--gold-light);
-  transform: scale(1.02);
+  transform: translateY(-1px);
 }
 
-/* Ghost outline button */
 .btn-ghost {
   background: transparent;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
   font-weight: 500;
-  transition: all 0.25s ease;
-  box-shadow: none !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-ghost:hover {
   border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateY(-1px);
 }
 
-/* Section divider */
-.section-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Marquee track */
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 35s linear infinite;
-}
-
-/* Counter stat text */
-.stat-number {
-  font-family: var(--font-lora), serif;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1;
-}
-
-/* Tilt card base */
-.tilt-card {
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease;
-}
-
-/* FAQ item */
-.faq-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-/* Cursor blend effect for 3D canvas */
-.three-canvas-wrapper {
-  position: fixed;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-
-/* Allow pointer events only on the Three.js canvas when hero is visible */
-.three-canvas-wrapper.interactive {
-  pointer-events: auto;
-}
-
-/* Nav link magnetic hover */
-.nav-link {
-  position: relative;
-  transition: color 0.2s ease;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  transition: width 0.3s ease;
-}
-.nav-link:hover::after {
+/* Interactive slider track styling */
+input[type="range"] {
+  -webkit-appearance: none;
   width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0px;
+  outline: none;
 }
-.nav-link:hover {
-  color: var(--gold);
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gold);
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--gold-light);
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111212;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
