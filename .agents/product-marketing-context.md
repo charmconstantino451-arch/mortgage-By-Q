@@ -38,3 +38,8 @@ Fixed a critical bug in `src/components/PaymentCalculator.jsx` — the `Animated
 **Summary:**
 Successfully completed the Awwwards-level V2 redesign of the homepage layout. Integrated a Three.js / React Three Fiber scene with a custom procedural modern villa which updates its camera tracking, lighting, and night modes based on scroll progress. Rebuilt the Hero Section with a premium split-grid layout over a cover background image, and created a 3D cylindrical draggable lender carousel in MetricsMarquee. Added a dark-styled interactive Payment Calculator and a multi-step eligibility wizard inside the Contact Drawer. Cleared Next.js compilation caches and launched the production server on port 3000 to bypass Windows spacing path resolution bugs. All changes compiled cleanly and were documented in task lists and walkthroughs.
 ---
+
+### Session Update: 2026-06-23 (V2 Walkthrough Verification & Git Push)
+**Summary:**
+Saved and verified the newly built Mortgage by Q V2 scrollytelling web application's architecture and scrollytelling mechanics walkthrough in `walkthrough.md`. Successfully compiled the production build using Next.js, and ran the export post-processing script to generate dynamic static assets with a relative path structure. Configured the local Git environment, committed the modifications/untracked files, and successfully pushed the repository updates to the remote GitHub repository at `https://github.com/charmconstantino451-arch/mortgage-By-Q.git`.
+---

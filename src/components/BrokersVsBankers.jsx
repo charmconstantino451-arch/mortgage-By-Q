@@ -87,7 +87,7 @@ export default function BrokersVsBankers() {
     <section
       ref={sectionRef}
       id="comparison"
-      className="relative min-h-screen w-full flex items-center justify-center bg-slate-dark text-white overflow-hidden border-y border-zinc-800/60 z-10"
+      className="relative min-h-screen w-full flex items-center justify-center bg-slate-primary text-white overflow-hidden border-y border-zinc-800/60 z-10"
     >
       <div className="max-w-7xl mx-auto w-full px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch min-h-[80vh] py-12">
         

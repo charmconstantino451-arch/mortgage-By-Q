@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #000000;
+  --background: #151717;
   --foreground: #FFFFFF;
-  --gold: #D4A843;
-  --gold-light: #F0C872;
-  --obsidian: #0a0a0a;
+  --gold: #D9B48F;
+  --gold-light: #EAD5C3;
+  --obsidian: #151717;
 }
 
 html {
@@ -37,9 +37,9 @@ canvas {
 
 /* Hero giant type utility */
 .text-hero-giant {
-  font-size: clamp(2.8rem, 6vw, 7rem);
-  line-height: 1.0;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.8rem, 8vw, 8.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
 }
 
 /* Italic gold emphasis */
@@ -48,22 +48,25 @@ canvas {
   color: var(--gold);
 }
 
-/* Glass morphism card */
+/* Flat Glass card - strictly 0px border radius and zero shadows */
 .glass-card {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0px !important;
+  box-shadow: none !important;
 }
 
-/* Gold glow button */
+/* Pill buttons - smooth, perfectly rounded interaction points */
 .btn-gold {
   background: var(--gold);
-  color: #000;
+  color: #151717;
   border-radius: 9999px;
   font-weight: 600;
   letter-spacing: 0.03em;
   transition: all 0.25s ease;
+  box-shadow: none !important;
 }
 .btn-gold:hover {
   background: var(--gold-light);
@@ -74,14 +77,15 @@ canvas {
 .btn-ghost {
   background: transparent;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
   font-weight: 500;
   transition: all 0.25s ease;
+  box-shadow: none !important;
 }
 .btn-ghost:hover {
   border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 /* Section divider */

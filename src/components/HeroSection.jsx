@@ -80,22 +80,22 @@ export default function HeroSection({ onOpenDrawer }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center flex-grow w-full py-10">
           
           {/* Left Column: Stacked Uppercase Title */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-6 space-y-6">
             <motion.div
               {...fadeRight}
               transition={{ ...fadeRight.transition, delay: 0.2 }}
               className="space-y-1"
             >
-              <h2 className="font-sans font-black text-4xl md:text-[3.8rem] lg:text-[4.5rem] tracking-tighter leading-[0.85] text-white uppercase">
+              <h1 className="font-serif text-5xl md:text-[130px] xl:text-[140px] tracking-tighter leading-[0.85] text-white uppercase font-light">
                 YOUR BANK<br />
                 OFFERS<br />
-                <span className="text-gold">ONE RATE.</span>
-              </h2>
+                <span className="text-accent-gold italic font-normal">ONE RATE.</span>
+              </h1>
             </motion.div>
           </div>
 
           {/* Center Column: Open/empty space to reveal house background in parallax */}
-          <div className="lg:col-span-2" />
+          <div className="lg:col-span-1" />
 
           {/* Right Column: Descriptions & Interactive Eligibility Card */}
           <div className="lg:col-span-5 flex flex-col lg:items-end lg:text-right space-y-6">
@@ -104,10 +104,10 @@ export default function HeroSection({ onOpenDrawer }) {
             <motion.div
               {...fadeLeft}
               transition={{ ...fadeLeft.transition, delay: 0.3 }}
-              className="space-y-4 max-w-sm"
+              className="space-y-4 max-w-md"
             >
               <h3 className="font-serif text-2xl md:text-3xl font-medium leading-snug text-white/90">
-                I make <em className="gold-italic font-sans font-bold">200+ lenders</em> compete for yours.
+                I make <em className="text-accent-gold font-sans font-bold not-italic">200+ lenders</em> compete for yours.
               </h3>
               <p className="text-white/45 text-xs md:text-sm font-sans leading-relaxed">
                 One quick application puts hundreds of lenders in a bidding war for your loan — so you get a lower rate, more options, and zero runaround.
@@ -120,9 +120,9 @@ export default function HeroSection({ onOpenDrawer }) {
               transition={{ ...fadeLeft.transition, delay: 0.4 }}
               whileHover={{ scale: 1.02 }}
               onClick={onOpenDrawer}
-              className="glass-card p-6 text-left border border-gold/20 hover:border-gold cursor-pointer transition-all duration-300 w-full max-w-sm lg:ml-auto select-none bg-white/[0.02]"
+              className="glass-card p-6 text-left border border-accent-gold/20 hover:border-accent-gold cursor-pointer transition-all duration-300 w-full max-w-sm lg:ml-auto select-none bg-white/[0.02]"
             >
-              <span className="text-[9px] uppercase tracking-[0.2em] text-gold font-sans font-semibold">
+              <span className="text-[9px] uppercase tracking-[0.2em] text-accent-gold font-sans font-semibold">
                 Interactive Eligibility Check
               </span>
               <h4 className="font-serif text-lg text-white font-semibold mt-1">
@@ -131,9 +131,9 @@ export default function HeroSection({ onOpenDrawer }) {
               <p className="text-white/45 text-xs font-sans mt-2">
                 Find out in about 3 minutes. Soft credit check — it won&apos;t ding your score.
               </p>
-              <div className="text-gold text-xs uppercase font-sans font-bold tracking-wider mt-4 flex items-center gap-1.5 group">
+              <div className="text-accent-gold text-xs uppercase font-sans font-bold tracking-wider mt-4 flex items-center gap-1.5 group">
                 Start Soft Check
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                <span className="group-hover:translate-x-2 transition-transform">→</span>
               </div>
             </motion.div>
 
@@ -154,7 +154,7 @@ export default function HeroSection({ onOpenDrawer }) {
               className="btn-gold py-3 px-8 text-xs uppercase tracking-wider flex items-center gap-2 group cursor-pointer"
             >
               See My Options
-              <span className="group-hover:translate-x-1.5 transition-transform">→</span>
+              <span className="group-hover:translate-x-2 transition-transform">→</span>
             </button>
             <a
               href="tel:9495367410"

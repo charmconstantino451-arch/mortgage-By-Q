@@ -36,13 +36,13 @@ export default function FaqSection({ onOpenDrawer }) {
   return (
     <section id="faq" className="relative z-10 w-full py-24 md:py-32 px-6 bg-void-black border-t border-white/[0.06] overflow-hidden">
       {/* Background radial gold glow for ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
         {/* Left Side: Conversion Hook */}
         <div className="lg:col-span-5 flex flex-col justify-center space-y-8">
           <div className="space-y-4">
-            <span className="text-[11px] uppercase tracking-[0.2em] text-gold font-sans font-semibold">
+            <span className="text-[11px] uppercase tracking-[0.2em] text-accent-gold font-sans font-semibold">
               The Next Step
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-bold leading-[1.1] text-white">
@@ -51,8 +51,8 @@ export default function FaqSection({ onOpenDrawer }) {
           </div>
           
           <p className="text-white/60 text-sm leading-relaxed font-sans max-w-md">
-            One quick application. 200+ lenders competing in a bidding war for your loan. 
-            No pressure, no retail markups, and zero obligation — just your real financing options, explained clearly.
+             One quick application. 200+ lenders competing in a bidding war for your loan. 
+             No pressure, no retail markups, and zero obligation — just your real financing options, explained clearly.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
@@ -61,7 +61,7 @@ export default function FaqSection({ onOpenDrawer }) {
               className="btn-gold py-3 px-8 text-xs uppercase tracking-wider flex items-center gap-2 group cursor-pointer"
             >
               Get My Free Quote
-              <span className="group-hover:translate-x-1.5 transition-transform">→</span>
+              <span className="group-hover:translate-x-2 transition-transform">→</span>
             </button>
             <a
               href="tel:9495367410"
@@ -88,10 +88,10 @@ export default function FaqSection({ onOpenDrawer }) {
                   <div key={index} className="py-6">
                     <button
                       onClick={() => toggleFaq(index)}
-                      className="w-full flex justify-between items-center text-left font-serif text-lg md:text-xl font-medium text-white hover:text-gold transition-colors focus:outline-none group"
+                      className="w-full flex justify-between items-center text-left font-serif text-lg md:text-xl font-medium text-white hover:text-accent-gold transition-colors focus:outline-none group"
                     >
                       <span className="pr-4">{faq.q}</span>
-                      <span className={`text-sm font-mono transition-transform duration-300 ${isOpen ? 'rotate-45 text-gold' : 'text-white/30 group-hover:text-white'}`}>
+                      <span className={`text-sm font-mono transition-transform duration-300 ${isOpen ? 'rotate-45 text-accent-gold' : 'text-white/30 group-hover:text-white'}`}>
                         ✕
                       </span>
                     </button>

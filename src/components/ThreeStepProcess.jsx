@@ -34,7 +34,7 @@ export default function ThreeStepProcess({ onOpenDrawer }) {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[10px] uppercase tracking-[0.22em] text-gold font-sans font-semibold"
+            className="text-[10px] uppercase tracking-[0.22em] text-accent-gold font-sans font-semibold"
           >
             Simple by Design
           </motion.span>
@@ -46,15 +46,15 @@ export default function ThreeStepProcess({ onOpenDrawer }) {
             className="font-serif text-4xl md:text-6xl text-white font-bold"
           >
             From &ldquo;hello&rdquo; to your best rate<br />
-            in <em className="gold-italic">3 easy steps</em>
+            in <span className="text-accent-gold italic font-normal">3 easy steps</span>
           </motion.h2>
         </div>
 
         {/* Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {/* Connector lines (desktop) */}
-          <div className="hidden md:block absolute top-12 left-[33%] w-[34%] h-[1px] bg-gradient-to-r from-gold/20 to-gold/20" />
-          <div className="hidden md:block absolute top-12 left-[66%] w-[34%] h-[1px] bg-gold/20" />
+          <div className="hidden md:block absolute top-12 left-[33%] w-[34%] h-[1px] bg-gradient-to-r from-accent-gold/20 to-accent-gold/20" />
+          <div className="hidden md:block absolute top-12 left-[66%] w-[34%] h-[1px] bg-accent-gold/20" />
 
           {STEPS.map((step, i) => (
             <motion.div
@@ -67,10 +67,10 @@ export default function ThreeStepProcess({ onOpenDrawer }) {
             >
               {/* Step number badge */}
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 border border-gold/40 flex items-center justify-center text-gold text-xs font-mono font-bold flex-shrink-0 bg-gold/5">
+                <div className="w-10 h-10 border border-accent-gold/40 flex items-center justify-center text-accent-gold text-xs font-mono font-bold flex-shrink-0 bg-accent-gold/5 rounded-none">
                   {step.num}
                 </div>
-                <div className="h-[1px] flex-1 bg-gradient-to-r from-gold/20 to-transparent md:hidden" />
+                <div className="h-[1px] flex-1 bg-gradient-to-r from-accent-gold/20 to-transparent md:hidden" />
               </div>
 
               <div className="space-y-3">
@@ -95,7 +95,7 @@ export default function ThreeStepProcess({ onOpenDrawer }) {
         >
           <button
             onClick={onOpenDrawer}
-            className="btn-gold animate-pulse-gold py-4 px-10 text-sm flex items-center gap-2.5 group"
+            className="btn-gold py-4 px-10 text-sm flex items-center gap-2.5 group font-sans"
           >
             Start My Free Quote
             <span className="group-hover:translate-x-2 transition-transform">→</span>

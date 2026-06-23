@@ -70,7 +70,7 @@ export default function BrokerEdge() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[10px] uppercase tracking-[0.22em] text-gold font-sans font-semibold"
+            className="text-[10px] uppercase tracking-[0.22em] text-accent-gold font-sans font-semibold"
           >
             Brokers, Not Bankers
           </motion.span>
@@ -82,7 +82,7 @@ export default function BrokerEdge() {
             className="font-serif text-4xl md:text-6xl text-white font-bold leading-[1.05]"
           >
             Why settle for one rate when you can have the{' '}
-            <em className="gold-italic">best of 200+?</em>
+            <span className="text-accent-gold italic font-normal">best of 200+?</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -99,12 +99,12 @@ export default function BrokerEdge() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {VALUE_PROPS.map((prop, i) => (
             <TiltCard key={i} delay={i * 0.12}>
-              <div className="glass-card p-8 h-full space-y-6 group hover:border-gold/20 transition-colors cursor-default">
-                <div className="w-12 h-12 border border-gold/30 flex items-center justify-center text-gold text-xl">
+              <div className="glass-card p-8 h-full space-y-6 group hover:border-accent-gold/20 transition-colors cursor-default rounded-none">
+                <div className="w-12 h-12 border border-accent-gold/30 flex items-center justify-center text-accent-gold text-xl">
                   {prop.icon}
                 </div>
                 <div className="space-y-3">
-                  <h3 className="font-serif text-xl text-white font-semibold leading-snug group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-xl text-white font-semibold leading-snug group-hover:text-accent-gold transition-colors">
                     {prop.title}
                   </h3>
                   <p className="text-white/40 text-sm font-sans leading-relaxed">

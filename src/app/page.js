@@ -7,6 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import Scene3D from '@/components/Scene3D';
 import HeroSection from '@/components/HeroSection';
+import BrokersVsBankers from '@/components/BrokersVsBankers';
 import MetricsMarquee from '@/components/MetricsMarquee';
 import BrokerEdge from '@/components/BrokerEdge';
 import ThreeStepProcess from '@/components/ThreeStepProcess';
@@ -43,7 +44,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-void-black text-white select-none">
+    <main className="relative min-h-screen bg-[#151717] text-white select-none">
       
       {/* 3D WebGL Canvas Layer (Fixed Background) */}
       <Scene3D scrollProgress={scrollProgress} />
@@ -57,7 +58,10 @@ export default function Home() {
         {/* Section 1: Hero Hook */}
         <HeroSection onOpenDrawer={handleOpenDrawer} />
 
-        {/* Section 2: Wholesale Lender Marquee & GSAP Counters */}
+        {/* Section 2: Brokers vs. Bankers Comparison Pinning */}
+        <BrokersVsBankers />
+
+        {/* Section 2.5: Wholesale Lender Marquee & GSAP Counters */}
         <MetricsMarquee />
 
         {/* Section 3: Brokers vs Bankers — 3D Tilt Cards */}

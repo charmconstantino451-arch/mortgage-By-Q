@@ -19,6 +19,13 @@ module.exports = {
         'white-pure': '#FFFFFF',
         'grey-muted': '#666666',
         'grey-subtle': '#333333',
+        'slate-primary': {
+          DEFAULT: '#151717',
+          dark: '#151717',
+          light: '#1F242E',
+        },
+        'surface-light': '#FFFFFF',
+        'accent-gold': '#D9B48F',
       },
       fontFamily: {
         serif: ['var(--font-lora)', 'Georgia', 'serif'],
