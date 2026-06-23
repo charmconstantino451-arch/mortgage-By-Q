@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --gold: #D4A843;
+  --gold-light: #F0C872;
+  --obsidian: #0a0a0a;
+}
+
+html {
+  background: var(--background);
+  color: var(--foreground);
+  scroll-behavior: auto;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+  font-family: var(--font-instrument-sans), system-ui, sans-serif;
+}
+
+/* Lenis smooth scroll */
+html.lenis { height: auto; }
+.lenis-smooth { scroll-behavior: auto; }
+.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis-stopped { overflow: hidden; }
+
+/* Three.js canvas layer */
+canvas {
+  pointer-events: auto;
+  display: block;
+}
+
+/* Hero giant type utility */
+.text-hero-giant {
+  font-size: clamp(2.8rem, 6vw, 7rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+}
+
+/* Italic gold emphasis */
+.gold-italic {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* Glass morphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Gold glow button */
+.btn-gold {
+  background: var(--gold);
+  color: #000;
+  border-radius: 9999px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all 0.25s ease;
+}
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: scale(1.02);
+}
+
+/* Ghost outline button */
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Section divider */
+.section-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Marquee track */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+/* Counter stat text */
+.stat-number {
+  font-family: var(--font-lora), serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* Tilt card base */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* FAQ item */
+.faq-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Cursor blend effect for 3D canvas */
+.three-canvas-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Allow pointer events only on the Three.js canvas when hero is visible */
+.three-canvas-wrapper.interactive {
+  pointer-events: auto;
+}
+
+/* Nav link magnetic hover */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.nav-link:hover {
+  color: var(--gold);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
