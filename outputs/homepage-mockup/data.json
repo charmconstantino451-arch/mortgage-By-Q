@@ -1,0 +1,118 @@
+{
+  "brand": {
+    "name": "Mortgage by Q",
+    "affiliation": "West Capital Lending",
+    "founder": "Quyen \"Q\" Sy",
+    "nmls": "1028669",
+    "dre": "02350634",
+    "phone": "(949) 536-7410",
+    "address": "Orange County, California"
+  },
+  "usp": {
+    "headline": "YOUR BANK OFFERS ONE RATE. I make 200+ lenders compete for yours.",
+    "subheadline": "One quick application puts hundreds of lenders in a bidding war for your loan — so you get a lower rate, more options, and zero runaround."
+  },
+  "metrics": {
+    "lendersCount": "200+",
+    "familiesHelped": "2,500+",
+    "typicalSavings": "$3,000+",
+    "clientRating": "4.9★",
+    "daysToClose": "30 days"
+  },
+  "services": [
+    {
+      "title": "Home Purchase",
+      "subtitle": "First home or your next",
+      "description": "A competitive rate with first-time-buyer programs and low-down options — from FHA 3.5% to conventional."
+    },
+    {
+      "title": "Refinance & Cash-Out",
+      "subtitle": "Lower your rate or unlock equity",
+      "description": "Shorten your term, reduce your payment, or turn equity into cash for renovations, investments, or debt consolidation."
+    },
+    {
+      "title": "Non-QM & Self-Employed",
+      "subtitle": "Bank-statement programs that work",
+      "description": "Alt-income qualification for business owners, freelancers, and entrepreneurs the big banks routinely overlook."
+    },
+    {
+      "title": "Investment & DSCR",
+      "subtitle": "Grow your rental portfolio",
+      "description": "Loans that use property rental income to qualify — not your personal tax returns. Scale without limits."
+    },
+    {
+      "title": "Bridge Loans",
+      "subtitle": "Buy before you sell",
+      "description": "Flexible short-term financing so you can secure your next home before your current one closes — on your timeline."
+    },
+    {
+      "title": "Foreign National",
+      "subtitle": "Cross-border financing simplified",
+      "description": "Overseas buyers and foreign nationals — we navigate the documentation and lender landscape so you can close."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Kerri M.",
+      "location": "Rochester, WA",
+      "rating": 5,
+      "program": "Refinance",
+      "savings": "$387/mo",
+      "quote": "Quyen demonstrated incredible patience and thoroughly answered all my questions. His deep knowledge of refinance options was truly impressive. He found us a rate we could not believe was real. I have already referred him to three family members."
+    },
+    {
+      "name": "Andy T.",
+      "location": "Thousand Oaks, CA",
+      "rating": 5,
+      "program": "Home Purchase",
+      "savings": "First Home",
+      "quote": "Great group of people to work with — painless and quick. They told us exactly what they needed and made it so simple. Closed in 22 days. Could not have asked for a smoother process from application to keys in hand."
+    },
+    {
+      "name": "Laura M.",
+      "location": "Royersford, PA",
+      "rating": 5,
+      "program": "Home Purchase",
+      "savings": "VA Loan",
+      "quote": "Quyen was wonderful to help get our loan. Great communication from start to finish. Highly recommend him to anyone looking to purchase a home or refinance. His team is extremely professional and responsive at every step."
+    },
+    {
+      "name": "David R.",
+      "location": "Irvine, CA",
+      "rating": 5,
+      "program": "Non-QM",
+      "savings": "Self-Employed",
+      "quote": "As a self-employed borrower, I was told by two other lenders that I simply did not qualify. Quyen found a bank-statement program that got us approved at a great rate. He fought for us when no one else would."
+    },
+    {
+      "name": "Sarah K.",
+      "location": "San Diego, CA",
+      "rating": 5,
+      "program": "DSCR",
+      "savings": "Investment Property",
+      "quote": "I was buying my first investment property and had no idea DSCR loans existed. Quyen walked me through everything. Closed with zero personal income docs required. Incredible expertise and genuine care for his clients."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Broker or bank — what's the real difference?",
+      "answer": "A retail bank can only offer its own internal loan products and rates. A mortgage broker is independent, acting as an intermediary to access wholesale rates from hundreds of different banks. Brokers shop around for you, matching your file to the best deal."
+    },
+    {
+      "question": "Will checking my options hurt my credit?",
+      "answer": "No. When we run initial scenarios, we perform a soft inquiry (soft credit pull). This allows us to access your scores and credit history without negatively impacting your credit score."
+    },
+    {
+      "question": "How much can I borrow?",
+      "answer": "Your borrowing power depends on your debt-to-income (DTI) ratio, credit scores, employment status, down payment size, and the loan program type (e.g., conventional vs. DSCR vs. bank statement). We can calculate your maximum qualification in minutes."
+    },
+    {
+      "question": "What documents do I need to apply?",
+      "answer": "For traditional loans: standard tax returns (W-2s), recent paystubs, bank statements, and ID. For self-employed bank statement loans: 12-24 months of business or personal bank statements. For DSCR loans: no personal income verification, just property leases and rent rolls."
+    },
+    {
+      "question": "How fast can I close?",
+      "answer": "While banks take 45-60 days on average, our direct wholesale connection enables us to close conventional purchases in 21-30 days, and DSCR or bank-statement loans inside 3-4 weeks."
+    }
+  ]
+}

@@ -417,6 +417,103 @@
   </footer>
 
   <script>
+    // ===== LOAD DYNAMIC DATA FROM JSON =====
+    fetch('data.json')
+      .then(r => {
+        if (!r.ok) throw new Error('data.json not found');
+        return r.json();
+      })
+      .then(data => {
+        console.log('Successfully loaded data.json:', data);
+        
+        // 1. Update Brand Elements
+        if (data.brand) {
+          document.querySelectorAll('.nav-logo-text, .footer-logo-text').forEach(el => {
+            el.textContent = data.brand.name;
+          });
+          document.querySelectorAll('.nav-logo-mark, .footer-logo-mark').forEach(el => {
+            el.textContent = data.brand.name.charAt(0);
+          });
+          document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+            el.href = `tel:${data.brand.phone.replace(/[^0-9]/g, '')}`;
+            el.innerHTML = el.innerHTML.replace(/\(.*\)\s*[0-9-]*\s*/g, data.brand.phone);
+          });
+          const footerTagline = document.querySelector('.footer-tagline');
+          if (footerTagline) {
+            footerTagline.textContent = `We shop ${data.metrics?.lendersCount || '150+'} lenders to find your best rate. ${data.brand.address || 'California'}'s trusted mortgage broker.`;
+          }
+          const footerBottomLeft = document.querySelector('.footer-bottom-left');
+          if (footerBottomLeft) {
+            footerBottomLeft.textContent = `© 2026 ${data.brand.name}. All rights reserved. NMLS #${data.brand.nmls || 'XXXXXXX'}.`;
+          }
+        }
+        
+        // 2. Update USP (Headline & Subheadline)
+        if (data.usp) {
+          const headline = document.querySelector('.hero-headline');
+          if (headline) {
+            let text = data.usp.headline;
+            if (text.includes('I make')) {
+              const parts = text.split('I make');
+              headline.innerHTML = `${parts[0]}<br><em>I make</em>${parts[1]}`;
+            } else {
+              headline.textContent = text;
+            }
+          }
+        }
+
+        // 3. Update Metrics/Trust Bar
+        if (data.metrics) {
+          const trustItems = document.querySelectorAll('.trust-item');
+          if (trustItems[0]) trustItems[0].querySelector('.trust-number').textContent = data.metrics.lendersCount;
+          if (trustItems[1]) trustItems[1].querySelector('.trust-number').textContent = data.metrics.clientRating;
+          if (trustItems[3]) trustItems[3].querySelector('.trust-number').textContent = data.metrics.daysToClose;
+          
+          const avatarText = document.querySelector('.avatar-text');
+          if (avatarText) avatarText.textContent = `${data.metrics.familiesHelped} families helped`;
+
+          // Update data-target attributes for scroll counters
+          const counters = document.querySelectorAll('.count-up');
+          counters.forEach(counter => {
+            const targetVal = counter.dataset.target;
+            if (targetVal === '150') {
+              counter.dataset.target = parseInt(data.metrics.lendersCount) || 150;
+            } else if (targetVal === '12') {
+              counter.dataset.target = parseInt(data.metrics.typicalSavings.replace(/[^0-9]/g, '')) || 12;
+            } else if (targetVal === '500') {
+              counter.dataset.target = parseInt(data.metrics.familiesHelped.replace(/[^0-9]/g, '')) || 500;
+            }
+          });
+        }
+
+        // 4. Update Services Grid
+        if (data.services && data.services.length > 0) {
+          const serviceCards = document.querySelectorAll('.service-card');
+          data.services.forEach((service, index) => {
+            if (serviceCards[index]) {
+              serviceCards[index].querySelector('.card-title').textContent = service.title;
+              serviceCards[index].querySelector('.card-body').textContent = service.description;
+            }
+          });
+        }
+
+        // 5. Update Testimonials Grid
+        if (data.testimonials && data.testimonials.length > 0) {
+          const testimonialCards = document.querySelectorAll('.testimonial-card');
+          data.testimonials.forEach((testimonial, index) => {
+            if (testimonialCards[index]) {
+              testimonialCards[index].querySelector('.stars').textContent = '★'.repeat(testimonial.rating);
+              testimonialCards[index].querySelector('.testimonial-text').textContent = `"${testimonial.quote}"`;
+              testimonialCards[index].querySelector('.author-name').textContent = testimonial.name;
+              testimonialCards[index].querySelector('.author-detail').textContent = `${testimonial.program} Client · ${testimonial.location}`;
+            }
+          });
+        }
+      })
+      .catch(err => {
+        console.log('Mockup loaded with default HTML static values:', err.message);
+      });
+
     // ===== SCROLL REVEAL =====
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -461,7 +558,8 @@
         nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.08)';
       }
     });
-    // ===== DOWNLOAD BOTH FILES =====
+
+    // ===== DOWNLOAD ALL FILES =====
     document.getElementById('download-btn').addEventListener('click', () => {
       // 1. Download styles.css
       fetch('styles.css')
@@ -476,17 +574,48 @@
           URL.revokeObjectURL(cssUrl);
         });
 
-      // 2. Download index.html slightly after so both arrive as a pair
+      // 2. Download index.html slightly after
       setTimeout(() => {
-        const html = document.documentElement.outerHTML;
-        const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'index.html';
-        a.click();
-        URL.revokeObjectURL(url);
+        fetch('index.html')
+          .then(r => r.text())
+          .then(htmlText => {
+            const htmlBlob = new Blob([htmlText], { type: 'text/html' });
+            const htmlUrl = URL.createObjectURL(htmlBlob);
+            const htmlA = document.createElement('a');
+            htmlA.href = htmlUrl;
+            htmlA.download = 'index.html';
+            htmlA.click();
+            URL.revokeObjectURL(htmlUrl);
+          })
+          .catch(() => {
+            const html = document.documentElement.outerHTML;
+            const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index.html';
+            a.click();
+            URL.revokeObjectURL(url);
+          });
       }, 400);
+
+      // 3. Download data.json slightly after
+      setTimeout(() => {
+        fetch('data.json')
+          .then(r => r.text())
+          .then(jsonText => {
+            const jsonBlob = new Blob([jsonText], { type: 'application/json' });
+            const jsonUrl = URL.createObjectURL(jsonBlob);
+            const jsonA = document.createElement('a');
+            jsonA.href = jsonUrl;
+            jsonA.download = 'data.json';
+            jsonA.click();
+            URL.revokeObjectURL(jsonUrl);
+          })
+          .catch(() => {
+            console.log('No data.json found, skipping JSON download.');
+          });
+      }, 800);
     });
   </script>
 
